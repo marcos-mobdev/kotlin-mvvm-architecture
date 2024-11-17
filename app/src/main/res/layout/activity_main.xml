@@ -7,18 +7,18 @@
 
         <variable
             name="user"
-            type="br.com.appforge.kotlinmvvmarchitecture.model.User" />
+            type="br.com.appforge.kotlinmvvmarchitecture.data.model.User" />
 
         <variable
             name="click"
-            type="br.com.appforge.kotlinmvvmarchitecture.view.MainActivity.ClickEvent" />
+            type="br.com.appforge.kotlinmvvmarchitecture.presentation.view.MainActivity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.MainActivity">
+        tools:context=".presentation.view.MainActivity">
 
         <Button
             android:id="@+id/buttonDataBinding"

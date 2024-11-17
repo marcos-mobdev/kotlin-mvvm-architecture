@@ -1,6 +1,6 @@
 package br.com.appforge.kotlinmvvmarchitecture
 
-import br.com.appforge.kotlinmvvmarchitecture.viewModel.UserViewModel
+import br.com.appforge.kotlinmvvmarchitecture.presentation.viewModel.UserViewModel
 
 class userTest {
 

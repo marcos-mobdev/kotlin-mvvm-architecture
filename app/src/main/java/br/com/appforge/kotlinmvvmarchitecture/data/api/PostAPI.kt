@@ -1,7 +1,7 @@
-package br.com.appforge.kotlinmvvmarchitecture.model.api
+package br.com.appforge.kotlinmvvmarchitecture.data.api
 
-import br.com.appforge.kotlinmvvmarchitecture.api.RetrofitService
-import br.com.appforge.kotlinmvvmarchitecture.model.Post
+import br.com.appforge.kotlinmvvmarchitecture.data.api.RetrofitService
+import br.com.appforge.kotlinmvvmarchitecture.data.model.Post
 
 class PostAPI {
 

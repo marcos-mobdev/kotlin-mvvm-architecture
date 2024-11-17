@@ -1,6 +1,6 @@
-package br.com.appforge.kotlinmvvmarchitecture.model.api
+package br.com.appforge.kotlinmvvmarchitecture.data.api
 
-import br.com.appforge.kotlinmvvmarchitecture.model.User
+import br.com.appforge.kotlinmvvmarchitecture.data.model.User
 
 class UserApi {
 

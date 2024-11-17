@@ -1,4 +1,4 @@
-package br.com.appforge.kotlinmvvmarchitecture.view
+package br.com.appforge.kotlinmvvmarchitecture.presentation.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,7 +10,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import br.com.appforge.kotlinmvvmarchitecture.R
 import br.com.appforge.kotlinmvvmarchitecture.databinding.ActivityFeedBinding
-import br.com.appforge.kotlinmvvmarchitecture.viewModel.UserViewModel
+import br.com.appforge.kotlinmvvmarchitecture.presentation.viewModel.UserViewModel
 
 class FeedActivity : AppCompatActivity() {
 
@@ -52,7 +52,7 @@ class FeedActivity : AppCompatActivity() {
         }
 
         binding.btnNavigateMain.setOnClickListener {
-            startActivity(Intent(this,MainActivity::class.java))
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 }

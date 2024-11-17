@@ -1,4 +1,4 @@
-package br.com.appforge.kotlinmvvmarchitecture.view
+package br.com.appforge.kotlinmvvmarchitecture.presentation.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,8 +9,8 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import br.com.appforge.kotlinmvvmarchitecture.R
 import br.com.appforge.kotlinmvvmarchitecture.databinding.ActivityPostsBinding
-import br.com.appforge.kotlinmvvmarchitecture.model.Post
-import br.com.appforge.kotlinmvvmarchitecture.viewModel.PostViewModel
+import br.com.appforge.kotlinmvvmarchitecture.data.model.Post
+import br.com.appforge.kotlinmvvmarchitecture.presentation.viewModel.PostViewModel
 
 class PostsActivity : AppCompatActivity() {
 
@@ -18,7 +18,7 @@ class PostsActivity : AppCompatActivity() {
         ActivityPostsBinding.inflate(layoutInflater)
     }
 
-    lateinit var postViewModel:PostViewModel
+    lateinit var postViewModel: PostViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +38,7 @@ class PostsActivity : AppCompatActivity() {
         }
 
         binding.btnNavigate.setOnClickListener {
-            startActivity(Intent(this,FeedActivity::class.java))
+            startActivity(Intent(this, FeedActivity::class.java))
         }
 
         binding.btnGetPosts.setOnClickListener {

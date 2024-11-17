@@ -1,10 +1,10 @@
-package br.com.appforge.kotlinmvvmarchitecture.viewModel
+package br.com.appforge.kotlinmvvmarchitecture.presentation.viewModel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import br.com.appforge.kotlinmvvmarchitecture.model.User
-import br.com.appforge.kotlinmvvmarchitecture.model.api.UserApi
+import br.com.appforge.kotlinmvvmarchitecture.data.model.User
+import br.com.appforge.kotlinmvvmarchitecture.data.api.UserApi
 
 class UserViewModel :ViewModel(){
 
