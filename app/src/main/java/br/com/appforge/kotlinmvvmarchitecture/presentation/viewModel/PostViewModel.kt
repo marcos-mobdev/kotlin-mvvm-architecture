@@ -3,21 +3,21 @@ package br.com.appforge.kotlinmvvmarchitecture.presentation.viewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import br.com.appforge.kotlinmvvmarchitecture.data.api.PostAPI
+import br.com.appforge.kotlinmvvmarchitecture.data.repository.PostRepository
 import br.com.appforge.kotlinmvvmarchitecture.data.model.Post
 import kotlinx.coroutines.launch
 
-class PostViewModel :ViewModel(
+class PostViewModel(private val postRepository: PostRepository)
+    :ViewModel(
 
 ){
 
-    val postList = MutableLiveData< List<Post> >()
+    var postList = MutableLiveData< List<Post> >()
+        get() = postRepository.postsList
 
     fun getPosts(){
-        val postAPI = PostAPI()
         viewModelScope.launch {
-            val posts = postAPI.getPosts()
-            postList.postValue(posts)
+            postRepository.getPosts()
         }
     }
 }

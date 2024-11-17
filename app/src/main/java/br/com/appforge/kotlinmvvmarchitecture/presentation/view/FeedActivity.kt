@@ -9,8 +9,11 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import br.com.appforge.kotlinmvvmarchitecture.R
+import br.com.appforge.kotlinmvvmarchitecture.data.repository.UserRepository
 import br.com.appforge.kotlinmvvmarchitecture.databinding.ActivityFeedBinding
+import br.com.appforge.kotlinmvvmarchitecture.presentation.viewModel.PostViewModelFactory
 import br.com.appforge.kotlinmvvmarchitecture.presentation.viewModel.UserViewModel
+import br.com.appforge.kotlinmvvmarchitecture.presentation.viewModel.UserViewModelFactory
 
 class FeedActivity : AppCompatActivity() {
 
@@ -23,14 +26,17 @@ class FeedActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        enableEdgeToEdge()
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        userViewModel = ViewModelProvider(this)[UserViewModel::class.java]
+        val userRepository = UserRepository()
+        userViewModel = ViewModelProvider(
+            this,
+            UserViewModelFactory(userRepository)
+        )[UserViewModel::class.java]
 
         //Observer
         userViewModel.usersLiveData.observe(this){ users->

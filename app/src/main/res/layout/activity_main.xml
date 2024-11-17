@@ -11,7 +11,7 @@
 
         <variable
             name="click"
-            type="br.com.appforge.kotlinmvvmarchitecture.presentation.view.MainActivity" />
+            type="br.com.appforge.kotlinmvvmarchitecture.presentation.view.MainActivity.ClickEvent" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

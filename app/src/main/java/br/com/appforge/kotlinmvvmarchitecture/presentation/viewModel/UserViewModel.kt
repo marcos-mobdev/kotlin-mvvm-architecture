@@ -4,17 +4,15 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import br.com.appforge.kotlinmvvmarchitecture.data.model.User
-import br.com.appforge.kotlinmvvmarchitecture.data.api.UserApi
+import br.com.appforge.kotlinmvvmarchitecture.data.repository.UserRepository
 
-class UserViewModel :ViewModel(){
+class UserViewModel(private val userRepository: UserRepository) :ViewModel(){
 
-    private val userApi = UserApi()
-    val usersLiveData = MutableLiveData< List<User> >()
+    var usersLiveData = MutableLiveData< List<User> >()
+        get() = userRepository.userList
 
 
     fun getUsers(){
-        val list = userApi.getUsers()
-        Log.i("info_users", "getUsers: $list")
-        usersLiveData.value = list
+        userRepository.getUsers()
     }
 }
