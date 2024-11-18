@@ -5,11 +5,13 @@ import br.com.appforge.kotlinmvvmarchitecture.data.api.JsonPlaceAPI
 import br.com.appforge.kotlinmvvmarchitecture.data.api.RetrofitService
 import br.com.appforge.kotlinmvvmarchitecture.data.model.Post
 
-class PostRepository (private val jsonPlaceAPI: JsonPlaceAPI){
+class PostRepository (
+    private val jsonPlaceAPI: JsonPlaceAPI
+):IPostRepository{
 
-    var postsList = MutableLiveData<List<Post>>()
+    override val postsList = MutableLiveData<List<Post>>()
 
-    suspend fun getPosts(){
+    override suspend fun getPosts(){
 
         try{
             val response = jsonPlaceAPI.getPosts()

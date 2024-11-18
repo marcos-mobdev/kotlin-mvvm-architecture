@@ -2,17 +2,11 @@ package br.com.appforge.kotlinmvvmarchitecture.presentation.view
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
-import br.com.appforge.kotlinmvvmarchitecture.R
 import br.com.appforge.kotlinmvvmarchitecture.data.api.RetrofitService
+import br.com.appforge.kotlinmvvmarchitecture.data.repository.PostDatabaseRepository
 import br.com.appforge.kotlinmvvmarchitecture.databinding.ActivityPostsBinding
-import br.com.appforge.kotlinmvvmarchitecture.data.model.Post
-import br.com.appforge.kotlinmvvmarchitecture.data.repository.PostRepository
-import br.com.appforge.kotlinmvvmarchitecture.presentation.viewModel.MainViewModel
 import br.com.appforge.kotlinmvvmarchitecture.presentation.viewModel.PostViewModel
 import br.com.appforge.kotlinmvvmarchitecture.presentation.viewModel.PostViewModelFactory
 
@@ -28,9 +22,13 @@ class PostsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-
+        //Alternatives for repository after Clean Architecture
         val jsonPlaceAPI = RetrofitService.getJsonPlace()
-        val postRepository = PostRepository(jsonPlaceAPI)
+        //val postRepository = PostRepository(jsonPlaceAPI)
+        //val postRepository = PostFirebaseRepository()
+        val postRepository = PostDatabaseRepository()
+
+
 
         //Provider will auto-instance the View Model
         //postViewModel = ViewModelProvider(this)[PostViewModel::class.java]
