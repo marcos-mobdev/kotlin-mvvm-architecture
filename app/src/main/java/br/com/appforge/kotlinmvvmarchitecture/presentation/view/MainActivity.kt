@@ -1,4 +1,4 @@
-package br.com.appforge.kotlinmvvmarchitecture.view
+package br.com.appforge.kotlinmvvmarchitecture.presentation.view
 
 import android.content.Context
 import android.os.Bundle
@@ -7,8 +7,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import br.com.appforge.kotlinmvvmarchitecture.R
+import br.com.appforge.kotlinmvvmarchitecture.data.model.User
 import br.com.appforge.kotlinmvvmarchitecture.databinding.ActivityMainBinding
-import br.com.appforge.kotlinmvvmarchitecture.model.User
 
 
 class MainActivity : AppCompatActivity() {

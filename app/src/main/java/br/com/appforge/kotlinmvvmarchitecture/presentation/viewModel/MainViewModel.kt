@@ -1,4 +1,4 @@
-package br.com.appforge.kotlinmvvmarchitecture.viewModel
+package br.com.appforge.kotlinmvvmarchitecture.presentation.viewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

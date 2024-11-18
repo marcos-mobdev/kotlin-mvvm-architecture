@@ -1,4 +1,4 @@
-package br.com.appforge.kotlinmvvmarchitecture.model
+package br.com.appforge.kotlinmvvmarchitecture.data.model
 
 data class User (
     val name: String,
