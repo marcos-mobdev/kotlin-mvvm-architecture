@@ -5,8 +5,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import br.com.appforge.kotlinmvvmarchitecture.data.api.RetrofitService
-import br.com.appforge.kotlinmvvmarchitecture.data.repository.PostDatabaseRepository
+import br.com.appforge.kotlinmvvmarchitecture.data.repository.PostRepository
 import br.com.appforge.kotlinmvvmarchitecture.databinding.ActivityPostsBinding
+import br.com.appforge.kotlinmvvmarchitecture.domain.usecase.PostUseCase
 import br.com.appforge.kotlinmvvmarchitecture.presentation.viewModel.PostViewModel
 import br.com.appforge.kotlinmvvmarchitecture.presentation.viewModel.PostViewModelFactory
 
@@ -24,9 +25,9 @@ class PostsActivity : AppCompatActivity() {
 
         //Alternatives for repository after Clean Architecture
         val jsonPlaceAPI = RetrofitService.getJsonPlace()
-        //val postRepository = PostRepository(jsonPlaceAPI)
-        //val postRepository = PostFirebaseRepository()
-        val postRepository = PostDatabaseRepository()
+        val postRepository = PostRepository(jsonPlaceAPI)
+        val postUseCase = PostUseCase(postRepository)
+
 
 
 
@@ -34,14 +35,14 @@ class PostsActivity : AppCompatActivity() {
         //postViewModel = ViewModelProvider(this)[PostViewModel::class.java]
         postViewModel = ViewModelProvider(
             this,
-            PostViewModelFactory(postRepository)
+            PostViewModelFactory(postUseCase)
         )[PostViewModel::class.java]
 
         //Observe for alterations at postList
-        postViewModel.postList.observe(this){ postList->
+        postViewModel.postResponseList.observe(this){ postList->
             var listText = ""
             postList.forEach{ post->
-                listText += "${post.id}) - ${post.body}\n"
+                listText += "${post.id}) - ${post.text}\n"
             }
             binding.textView.text = listText
         }

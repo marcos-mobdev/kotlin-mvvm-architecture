@@ -1,10 +1,9 @@
 package br.com.appforge.kotlinmvvmarchitecture.data.repository
 
 import androidx.lifecycle.MutableLiveData
-import br.com.appforge.kotlinmvvmarchitecture.data.model.Post
+import br.com.appforge.kotlinmvvmarchitecture.data.model.PostResponse
+import br.com.appforge.kotlinmvvmarchitecture.domain.model.Post
 
 interface IPostRepository {
-    val postsList : MutableLiveData<List<Post>>
-
-   suspend fun getPosts()
+    suspend fun getPosts():List<Post>
 }
